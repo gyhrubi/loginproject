@@ -1,0 +1,107 @@
+/**********************************************
+*** GENERAL
+**********************************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+.wrapper {
+    margin: auto;
+    width: 800px;
+}
+
+/**********************************************
+*** COMMON
+**********************************************/
+
+.page {
+    margin: auto;
+    margin-top: 250px;
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.header {
+    background-color: #90a4ae;
+    color: #000;
+}
+
+.page-label {
+    opacity: 0.87;
+    text-transform: uppercase;
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    padding: 5px;
+}
+
+button {
+    background-color: #90a4ae;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    text-transform: uppercase;
+    margin: 20px auto;
+    cursor: pointer;
+
+}
+
+/**********************************************
+*** LOGIN PAGE
+**********************************************/
+
+.login-page {
+    width: 360px;
+    box-shadow: 5px 5px 5px rgba(46, 45, 45, 0.24);
+}
+
+.form-block {
+    margin: 30px 20px 0 20px;
+}
+
+.login-field {
+    display: block;
+    font-size: 22px;
+    margin: 15px auto;
+    width: 90%;
+    border: none;
+    border-bottom: solid 1px #90a4ae;
+}
+
+.login-console-message {
+    color: #dd2c00;
+    font-size: 16px;
+    margin: 30px;
+    text-align: center;
+
+}
+.material-icons.md-48 { font-size: 48px; }
+.lock-icon {
+    color: #90a4ae;
+    margin-top: 50px;
+}
+
+.footer {
+    text-align: center;
+}
+
+.login-block {
+    text-align: center;
+}
+
+/**********************************************
+*** USERS PAGE
+**********************************************/
+
+.user-list-block {
+    float: left;
+}

@@ -1,12 +1,12 @@
-var AppController = (function(){
+var AppController = (function(ctrlData,ctrlUI){
 
     // Private part of the module:
     
     
     // Public part of the module:
-    return = {
+    return {
         
         
     };
     
-})();
+})(DataController,UIController);

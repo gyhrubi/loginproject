@@ -2,12 +2,81 @@
 <html>
     <head>
         <title>Login project</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
         <link rel="stylesheet" href="resources/css/style.css" type="text/css">
     </head>
     <body>
-    
+        <div class="wrapper">
+            <div class="page login-page">
+                <div class="header">
+                    <h2 class="page-label">Login Page</h2>
+                </div>
+                <div class="login-block">
+                    <i class="material-icons md-48 lock-icon">lock</i>
+                    <div class="form-block">
+                        <input class="login-field" type="text" placeholder="User name">
+                        <input class="login-field" type="password" placeholder="Password">
+                    </div>
+                    <div class="login-console">
+                        <p class="login-console-message">Rossz jelszót adott meg.</p>
+                    </div>
+                </div>
+                <div class="footer">
+                    <button class="login-btn">Login</button>
+                </div>
+            </div>
+            <div class="page user-page show">
+                <div class="user-list-block">
+                    <div class="header">
+                        <h2 class="page-label">Users</h2>
+                    </div>
+                    <div class="add-user"><i class="material-icons">add_circle</i> Add user</div>                    
+                    <ul class="user-list">
+                        <li>User 1</li>
+                        <li>User 2</li>
+                        <li>johndoe</li>
+                        <li>User 4</li>
+                    </ul>
+  
+                    <div class="current-user-block">
+                        <i class="material-icons lock-icon">lock</i>
+                        <span class="current-user">johndoe</span>
+                        <button class="logout-btn">Logout</button>
+                    </div>
+                </div>
+                <div class="user-data-block">
+                    <div class="header">
+                        <h2 class="page-label">User Datas</h2>
+                    </div>
+                    <div class="user-datas">
+                        <table>
+                            <tr>
+                                <th>User name:</th>
+                                <th>johndoe</th>
+                            </tr>
+                            <tr>
+                                <th>First name:</th>
+                                <th>John</th>
+                            </tr>
+                            <tr>
+                                <th>Last name:</th>
+                                <th>Doe</th>
+                            </tr>
+                            <tr>
+                                <th>E-mail:</th>
+                                <th>johndoe@mail.com</th>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>    
+        </div>
     </body>
     <script src="resources/js/data.js"></script>
     <script src="resources/js/ui.js"></script>
+    <script src="resources/js/testing.js"></script>
     <script src="resources/js/app.js"></script>
 </html>

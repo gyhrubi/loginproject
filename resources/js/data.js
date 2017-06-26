@@ -4,7 +4,7 @@ var DataController = (function(){
     
     
     // Public part of the module:
-    return = {
+    return {
         
         
     };
