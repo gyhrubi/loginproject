@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Nem Gyuszi címe</title>
+        <meta charset="UTF-8">
+        <title>Projekt 2 login</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
         <link rel="stylesheet" href="resources/css/style.css" type="text/css">
@@ -15,11 +17,11 @@
                 <div class="login-block">
                     <i class="material-icons md-48 lock-icon">lock</i>
                     <div class="form-block">
-                        <input class="login-field" type="text" placeholder="User name">
-                        <input class="login-field" type="password" placeholder="Password">
+                        <input class="login-field" id="login-field-username" type="text" placeholder="User name">
+                        <input class="login-field" id="login-field-password" type="password" placeholder="Password">
                     </div>
                     <div class="login-console">
-                        <p class="login-console-message">Rossz jelszót adott meg.</p>
+                        <p class="login-console-message"></p>
                     </div>
                 </div>
                 <div class="footer">
@@ -33,14 +35,14 @@
                     </div>
                     <div class="add-user"><i class="material-icons">add_circle</i> Add user</div>                    
                     <ul class="user-list">
-                        <li>User 1</li>
-                        <li>User 2</li>
-                        <li>johndoe</li>
-                        <li>User 4</li>
+                        <li class="user-list-item">User 1</li>
+                        <li class="user-list-item">User 2</li>
+                        <li class="user-list-item">johndoe</li>
+                        <li class="user-list-item">User 4</li>
                     </ul>
   
                     <div class="current-user-block">
-                        <i class="material-icons lock-icon">lock</i>
+                        <i class="material-icons">person</i>
                         <span class="current-user">johndoe</span>
                         <button class="logout-btn">Logout</button>
                     </div>
@@ -50,22 +52,22 @@
                         <h2 class="page-label">User Datas</h2>
                     </div>
                     <div class="user-datas">
-                        <table>
+                        <table class="table table-striped">
                             <tr>
                                 <th>User name:</th>
-                                <th>johndoe</th>
+                                <th><input type="text" class="user-table-data" id="username" value="johndoe"></th>
                             </tr>
                             <tr>
                                 <th>First name:</th>
-                                <th>John</th>
+                                <th><input type="text" class="user-table-data" id="firstname" value="John" disabled></th>
                             </tr>
                             <tr>
                                 <th>Last name:</th>
-                                <th>Doe</th>
+                                <th><input type="text" class="user-table-data" id="lastname" value="Doe" disabled></th>
                             </tr>
                             <tr>
                                 <th>E-mail:</th>
-                                <th>johndoe@mail.com</th>
+                                <th><input type="text" class="user-table-data" id="email" value="johndoe@example.com" disabled></th>
                             </tr>
                         </table>
                     </div>
@@ -76,6 +78,6 @@
         </div>
     </body>
     <script src="resources/js/data.js"></script>
-    <script src="resources/js/ui.js"></script>git 
+    <script src="resources/js/ui.js"></script>
     <script src="resources/js/app.js"></script>
 </html>
