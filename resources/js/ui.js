@@ -1,4 +1,4 @@
-// Eszti rész:
+// Eszti része:
 var UIController = (function(){
 
     // Private part of the module:
