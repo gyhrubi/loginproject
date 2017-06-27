@@ -28,16 +28,16 @@ var UIController = (function(){
         },
         loginFails: function(error_reason) {
             var z;
-            z = document.querySelector(DOMstrings.errortext).textContent;
+            z = document.querySelector(DOMstrings.errortext);
            switch(error_reason) {
             case 0:
-                 z = 'Hibás jelszó';
+                 z.textContent = 'Hibás jelszó';
                 break;
             case 1:
-                z = 'Hibás felhasználó';
+                z.textContent = 'Hibás felhasználó';
                 break;
             default:
-                 z = 'Hibás bejelentkezés';
+                 z.textContent = 'Hibás bejelentkezés';
 } 
         },
         
