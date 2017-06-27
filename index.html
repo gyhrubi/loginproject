@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Nem Gyuszi címe</title>
+        <title>Projekt 2 login</title>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
         <link rel="stylesheet" href="resources/css/style.css" type="text/css">
     </head>
     <body>
         <div class="wrapper">
-            <div class="page login-page">
+            <div class="page login-page show">
                 <div class="header">
                     <h2 class="page-label">Login Page</h2>
                 </div>
                 <div class="login-block">
                     <i class="material-icons md-48 lock-icon">lock</i>
                     <div class="form-block">
-                        <input class="login-field" type="text" placeholder="User name">
-                        <input class="login-field" type="password" placeholder="Password">
+                        <input class="login-field" id="login-field-username" type="text" placeholder="User name">
+                        <input class="login-field" id="login-field-password" type="password" placeholder="Password">
                     </div>
                     <div class="login-console">
                         <p class="login-console-message">Rossz jelszót adott meg.</p>
@@ -26,7 +26,7 @@
                     <button class="login-btn">Login</button>
                 </div>
             </div>
-            <div class="page user-page show">
+            <div class="page user-page">
                 <div class="user-list-block">
                     <div class="header">
                         <h2 class="page-label">Users</h2>
