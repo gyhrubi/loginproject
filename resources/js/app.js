@@ -3,9 +3,9 @@ var AppController = (function(ctrlData,ctrlUI){
     // Private part of the module:
     var setupEventListeners = function() {
         
-        var DOM = ctrlUI.getDOMStrings();
+        var DOM = ctrlUI.getDOMstrings();
         
-        document.querySelector(DOM.loginBtn).addEventListener('click',ctrlLogin);
+        document.querySelector(DOM.login_btn).addEventListener('click',ctrlLogin);
         
         document.addEventListener('keypress', function(event){
            
@@ -18,23 +18,22 @@ var AppController = (function(ctrlData,ctrlUI){
     };
     
     var ctrlLogin = function() {
-      
-        console.log('Login method.');
+        
+        // Get login input datas
+        var loginData = ctrlUI.getInput();
         
         /*
-        // Get login input datas
-        var loginData = ctrlUI.getLoginInput();
-        
         // Authorize current login
         var authResult = ctrlData.authUser();
-        
-        // Render the authorization result
-        if (authResult === 1) {
-            ctrlUI.showUserList(param);
-        } else {
-            ctrlUI.loginFails(param);
-        }
         */
+        // Render the authorization result
+        if (1) {
+            ctrlUI.clearFields();
+            ctrlUI.showUserList();
+        } else {
+            ctrlUI.loginFails(0);
+        }
+        
     };
     
     
