@@ -22,10 +22,10 @@ var AppController = (function(ctrlData,ctrlUI){
         // Get login input datas
         var loginData = ctrlUI.getInput();
         
-        /*
+       
         // Authorize current login
-        var authResult = ctrlData.authUser();
-        */
+        var authResult = ctrlData.authUser(loginData.user_name, loginData.password);
+       
         // Render the authorization result
         if (1) {
             ctrlUI.clearFields();
