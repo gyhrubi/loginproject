@@ -1,6 +1,7 @@
 var AppController = (function(ctrlData,ctrlUI){
 
     // Private part of the module:
+
     var setupEventListeners = function() {
         
         var DOM = ctrlUI.getDOMstrings();
@@ -22,10 +23,10 @@ var AppController = (function(ctrlData,ctrlUI){
         // Get login input datas
         var loginData = ctrlUI.getInput();
         
-        /*
+       
         // Authorize current login
-        var authResult = ctrlData.authUser();
-        */
+        var authResult = ctrlData.authUser(loginData.user_name, loginData.password);
+       
         // Render the authorization result
         if (1) {
             ctrlUI.clearFields();
@@ -36,6 +37,7 @@ var AppController = (function(ctrlData,ctrlUI){
         
     };
     
+>>>>>>> cce6236a499a125425ca4ca21108780b54d4f592
     
     // Public part of the module:
     return {
