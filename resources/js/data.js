@@ -133,16 +133,20 @@ var DataController = (function () {
         //Add User
         addUser: function (userName, password, firstName, lastName, email) {
             newUser = new User(userName, encryptPassword(password), firstName, lastName, email);
-            for (var i = 0; i < usersArray.length; i++){
-                if (usersArray[i].userName.toUpperCase() === newUser.userName.toUpperCase()) {
-                    console.log('Sikertelen reg. Ilyen felhasználónév már van az adatbázisban');
-                    return -1;
+            if (newUser.userName !== "" && newUser.password !== "") {
+                for (var i = 0; i < usersArray.length; i++){
+                    if (usersArray[i].userName.toUpperCase() === newUser.userName.toUpperCase()) {
+                        console.log('Sikertelen reg. Ilyen felhasználónév már van az adatbázisban');
+                        return -1;
+                    }
                 }
+                usersArray.push(newUser);
+                console.log('Sikeres reg');
+                console.log(usersArray);
+                return newUser;
+            } else {
+                console.log('Nem adtál meg felhasználónevet/jelszót!');
             }
-            usersArray.push(newUser);
-            console.log('Sikeres reg');
-            console.log(usersArray);
-            return newUser;
         }
     };
 })();
