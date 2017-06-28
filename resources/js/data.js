@@ -11,7 +11,7 @@ var DataController = (function () {
     };
   
     var encryptedPasswordFull = "";
-    var usersArray = [{userName: 'ADMIN', password: 'adminPass', firstName: 'adminFirst', lastName: 'adminLast', email: 'admin@gmail.com'},{userName: 'elso', password: 'elsoPass', firstName: 'elsoFirst', lastName: 'elsoLast', email: 'elso@gmail.com'},{userName: 'masodik', password: 'masodikPass', firstName: 'masodikFirst', lastName: 'masodikLast', email: 'masodik@gmail.com'},{userName: 'harmadik', password: 'harmadikPass', firstName: 'harmadikFirst', lastName: 'harmadikLast', email: 'harmadik@gmail.com'}];
+    var usersArray = [{userName: 'ADMIN', password: 'ÚÐØÆÀ', firstName: 'adminFirst', lastName: 'adminLast', email: 'admin@gmail.com'},{userName: 'elso', password: 'elsoPass', firstName: 'elsoFirst', lastName: 'elsoLast', email: 'elso@gmail.com'},{userName: 'masodik', password: 'masodikPass', firstName: 'masodikFirst', lastName: 'masodikLast', email: 'masodik@gmail.com'},{userName: 'harmadik', password: 'harmadikPass', firstName: 'harmadikFirst', lastName: 'harmadikLast', email: 'harmadik@gmail.com'}];
     //console.log(usersArray);
     var currentUser;
     var encryptedPasswordFull = "";
@@ -24,18 +24,17 @@ var DataController = (function () {
             encryptedPassword += String.fromCharCode((password.charCodeAt(i) - 1) * 2);
         }
         encryptedPasswordFull = encryptedPassword.split("").reverse().join("");
-        //console.log("Beírt jelszó: |" + password + "|");
-        //console.log("Kódolt jelszó: |" + encryptedPasswordFull + "|");
+        console.log("Beírt jelszó: |" + password + "|");
+        console.log("Kódolt jelszó: |" + encryptedPasswordFull + "|");
         return encryptedPasswordFull;
     };
 
-    // encryptPassword("mackó43");
+     //encryptPassword("admin");
 
  
     // Decrypt Password
     var decryptPassword = function (password) {
-        var decryptedPassword = "",
-            passwordBackward = "";
+        var decryptedPassword = "", passwordBackward = "";
 
         for (var i = 0; i < password.length; i++) {
             decryptedPassword += String.fromCharCode(password.charCodeAt(i) / 2 + 1);
