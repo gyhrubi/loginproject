@@ -11,8 +11,8 @@ var DataController = (function () {
     };
   
     var encryptedPasswordFull = "";
-    var usersArray = [{userName: 'ADMIN', password: 'ÚÐØÆÀ', firstName: 'adminFirst', lastName: 'adminLast', email: 'admin@gmail.com'},{userName: 'elso', password: 'elsoPass', firstName: 'elsoFirst', lastName: 'elsoLast', email: 'elso@gmail.com'},{userName: 'masodik', password: 'masodikPass', firstName: 'masodikFirst', lastName: 'masodikLast', email: 'masodik@gmail.com'},{userName: 'harmadik', password: 'harmadikPass', firstName: 'harmadikFirst', lastName: 'harmadikLast', email: 'harmadik@gmail.com'}];
-    //console.log(usersArray);
+    var usersArray = [{userName: 'ADMIN', password: 'ÚÐØÆÀ', firstName: 'adminFirst', lastName: 'adminLast', email: 'admin@gmail.com'},{userName: 'elso', password: 'ääÀÜäÖÈ', firstName: 'elsoFirst', lastName: 'elsoLast', email: 'elso@gmail.com'},{userName: 'masodik', password: 'ääÀÔÐÆÜäÀØ', firstName: 'masodikFirst', lastName: 'masodikLast', email: 'masodik@gmail.com'},{userName: 'harmadik', password: 'ääÀÔÐÆÀØâÀÎ', firstName: 'harmadikFirst', lastName: 'harmadikLast', email: 'harmadik@gmail.com'}];
+    console.log(usersArray);
     var currentUser;
     var encryptedPasswordFull = "";
  
@@ -24,12 +24,12 @@ var DataController = (function () {
             encryptedPassword += String.fromCharCode((password.charCodeAt(i) - 1) * 2);
         }
         encryptedPasswordFull = encryptedPassword.split("").reverse().join("");
-        console.log("Beírt jelszó: |" + password + "|");
-        console.log("Kódolt jelszó: |" + encryptedPasswordFull + "|");
+        //console.log("Beírt jelszó: |" + password + "|");
+        //console.log("Kódolt jelszó: |" + encryptedPasswordFull + "|");
         return encryptedPasswordFull;
     };
 
-     //encryptPassword("admin");
+     //encryptPassword("harmadikPass");
 
  
     // Decrypt Password
@@ -40,8 +40,8 @@ var DataController = (function () {
             decryptedPassword += String.fromCharCode(password.charCodeAt(i) / 2 + 1);
         }
         decryptedPasswordFull = decryptedPassword.split("").reverse().join("");
-        console.log("Kapott kódolt jelszó: |" + password + "|");
-        console.log("Eredeti password: |" + decryptedPasswordFull + "|");
+        //console.log("Kapott kódolt jelszó: |" + password + "|");
+        //console.log("Eredeti password: |" + decryptedPasswordFull + "|");
         return decryptedPasswordFull;
     }
     // decryptPassword(encryptedPasswordFull);
@@ -106,7 +106,14 @@ var DataController = (function () {
         //Add User
         addUser: function (userName, password, firstName, lastName, email) {
             newUser = new User(userName, encryptPassword(password), firstName, lastName, email);
+            for (var i = 0; i < usersArray.length; i++){
+                if (usersArray[i].userName === newUser.userName) {
+                    console.log('Sikertelen reg. Ilyen felhasználónév már van az adatbázisban');
+                    return -1;
+                }
+            }
             usersArray.push(newUser);
+            console.log('Sikeres reg');
             return newUser;
         }
     };
@@ -114,6 +121,22 @@ var DataController = (function () {
 
 
 
-// addUser('elso', 'elsoPass', 'elsoFirst', 'elsoLast','elso@gmail.com');
+// addUser('ManBearPig', 'halfmanhalfbearhalfpig', 'ManBear', 'Pig','manbearpig@gmail.com');
+// DataController.addUser('ManBearPig', 'halfmanhalfbearhalfpig', 'ManBear', 'Pig','manbearpig@gmail.com');
+
+
+/*
+ //Add User
+        addUser: function (userName, password, firstName, lastName, email) {
+            newUser = new User(userName, encryptPassword(password), firstName, lastName, email);
+            usersArray.push(newUser);
+            return newUser;
+        }
+*/
+
+
+
+
+
 
 
