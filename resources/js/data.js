@@ -9,49 +9,29 @@ var DataController = (function () {
         this.lastName = lastName;
         this.email = email;
     };
-    /*    
-        User.prototype.encryptPassword = function(password) {
-            var encryptedPassword ="";
-             
-             for (var i = 0; i < password.length; i++){
-                 encryptedPassword += String.fromCharCode((password.charCodeAt(i) - 1) * 2 );
-             }
-             encryptedPasswordFull = encryptedPassword.split("").reverse().join("");
-            
-             console.log("Beírt jelszó: |" + password + "|");
-             console.log("Kódolt jelszó: |" + encryptedPasswordFull + "|");
-             return encryptedPasswordFull;
-        };
-      */
+  
     var encryptedPasswordFull = "";
-    var usersArray = [];
+    var usersArray = [{userName: 'ADMIN', password: 'adminPass', firstName: 'adminFirst', lastName: 'adminLast', email: 'admin@gmail.com'}/*,{userName: 'elso', password: 'elsoPass', firstName: 'elsoFirst', lastName: 'elsoLast', email: 'elso@gmail.com'},{userName: 'masodik', password: 'masodikPass', firstName: 'masodikFirst', lastName: 'masodikLast', email: 'masodik@gmail.com'},{userName: 'harmadik', password: 'harmadikPass', firstName: 'harmadikFirst', lastName: 'harmadikLast', email: 'harmadik@gmail.com'}*/];
+    //console.log(usersArray);
     var currentUser;
+    var encryptedPasswordFull = "";
+ 
 
-
-    
-    
-
-    var encryptedPasswordFull = ""; //beírt jelszó
-
-    ///////////////////////////////////////////////////////////////////////// 
     // Encrypt Password
-    var encryptPassword = function(password) {
+    var encryptPassword = function (password) {
         var encryptedPassword = "";
-
         for (var i = 0; i < password.length; i++) {
             encryptedPassword += String.fromCharCode((password.charCodeAt(i) - 1) * 2);
         }
         encryptedPasswordFull = encryptedPassword.split("").reverse().join("");
-
-        console.log("Beírt jelszó: |" + password + "|");
-        console.log("Kódolt jelszó: |" + encryptedPasswordFull + "|");
+        //console.log("Beírt jelszó: |" + password + "|");
+        //console.log("Kódolt jelszó: |" + encryptedPasswordFull + "|");
         return encryptedPasswordFull;
     };
 
-    ////    encryptPassword("mackó43");
+    // encryptPassword("mackó43");
 
-
-    ///////////////////////////////////////////////////////////////////////// 
+ 
     // Decrypt Password
     var decryptPassword = function (password) {
         var decryptedPassword = "",
@@ -65,21 +45,8 @@ var DataController = (function () {
         console.log("Eredeti password: |" + decryptedPasswordFull + "|");
         return decryptedPasswordFull;
     }
-    ////    decryptPassword(encryptedPasswordFull);
-    
-    ///////////////////////////////////////////////////////////////////////// 
-    // Új felhasználó hozzáadása
-    var addUser = function (userName, password, firstName, lastName, email) {
-        newUser = new User(userName, encryptPassword(password), firstName, lastName, email);
-        usersArray.push(newUser);
-        return newUser;
-    };
-
-    addUser('ADMIN', 'adminPass', 'adminFirst', 'adminLast','admin@gmail.com');
-    addUser('elso', 'elsoPass', 'elsoFirst', 'elsoLast','elso@gmail.com');
-    addUser('masodik', 'masodikPass', 'masodikFirst', 'masodikLast','masodik@gmail.com');
-    addUser('harmadik', 'harmadikPass', 'harmadikFirst', 'harmadikLast','harmadik@gmail.com');
-
+    // decryptPassword(encryptedPasswordFull);
+ 
 
     // Public part of the module:
     return {
@@ -108,13 +75,12 @@ var DataController = (function () {
         getUserList: function () {
             var userList = [];
             for (var i = 1; i < usersArray.length; i++) {
-                userList[i-1] = usersArray[i].userName;
+                userList[i - 1] = usersArray[i].userName;
             }
             console.log("User List:");
             console.log(userList);
             return userList;
         },
-
 
         //Get User Data
         getUserData: function (nameOfUser) {
@@ -136,81 +102,19 @@ var DataController = (function () {
         getCurrentUser: function () {
             console.log(currentUser);
             return currentUser;
+        },
+        
+        //Add User
+        addUser: function (userName, password, firstName, lastName, email) {
+            newUser = new User(userName, encryptPassword(password), firstName, lastName, email);
+            usersArray.push(newUser);
+            return newUser;
         }
-
     };
 })();
 
-/*
-////////////////////////////////////////////////////////////////
-//Get User list
-getUserList = function() {
-    var userList = [];
-    for (var i = 0; i < usersArray.length; i++) {
-        userList[i] = usersArray[i].userName;
-    }
-    console.log("User List:");
-    console.log(userList);
-    return userList;
-}
-
-////////////////////////////////////////////////////////////////
-//Get User Data
-getUserData = function(nameOfUser) {
-    var userData = [];
-    for(var i = 0; i < usersArray.length; i ++) {
-        if(nameOfUser === usersArray[i].userName) {
-            var x = usersArray[i];
-            userData.push(usersArray[i]);
-            userData.push(x.userName, x.firstName, x.lastName, x.email);
-            console.log("User Data:");
-            console.log(userData);
-            return userData;        
-        }
-    }
-    return -1;
-}
-
-////////////////////////////////////////////////////////////////
-//Get current User
-getCurrentUser = function() {
-    console.log(currentUser);
-    return currentUser;
-}
-
-var usersArray = [];
-var User = function(userName, password, firstName, lastName, email) {
-    this.userName = userName;
-    this.password = password;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
-};
-var addUser = function (userName, password, firstName, lastName, email) {
-    newUser = new User(userName, password, firstName, lastName, email);
-    usersArray.push(newUser);
-    return newUser;
-};
 
 
+//addUser('elso', 'elsoPass', 'elsoFirst', 'elsoLast','elso@gmail.com');
 
-addUser('ADMIN', 'adminPass', 'adminFirst', 'adminLast','admin@gmail.com');
-addUser('elso', 'elsoPass', 'elsoFirst', 'elsoLast','elso@gmail.com');
-addUser('masodik', 'admin', 'masodikFirst', 'masodikLast','masodik@gmail.com');
-addUser('harmadik', 'admin', 'harmadikFirst', 'harmadikLast','harmadik@gmail.com');
 
-getUserList();
-getUserData('elso');*/
-/*
-var newArray = [];
-for (var prop in usersArray[0]) {
-  if (usersArray[0].hasOwnProperty(prop)) {
-	var innerObj = {};
-	innerObj[prop] = usersArray[0][prop];
-	newArray.push(innerObj)
-  }
-}
-
-console.log(newArray);
-
-*/
