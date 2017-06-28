@@ -32,23 +32,19 @@ var AppController = (function(ctrlData,ctrlUI){
         } else {
             ctrlUI.loginFails(authResult[1]);
         }
-        
-        // Render the authorization result
-        /*if (1) {
-            ctrlUI.clearFields();
-            ctrlUI.showUserList();
-            ctrlLoadUserPage();
-        } else {
-            ctrlUI.loginFails(0);
-        }*/
-        
+
     };
     
-    var ctrlLoadUserPage = function(userlist,currentuser,userdata) {
+    var ctrlLoadUserPage = function() {
+        
+        var users,currentUser,currentUserData;
+        users = ctrlData.getUserList();
+        currentUser = ctrlData.getCurrentUser();
+        currentUserData = ctrlData.getUserData(currentUser);
         // meghivni az UI-ból a függvényeket
         ctrlUI.clearFields();
         ctrlUI.showUserList();
-        ctrlUI.renderUserPage();
+        ctrlUI.renderUserPage(users,currentUser,currentUserData);
     };
 
     // Public part of the module:
