@@ -38,6 +38,7 @@ var AppController = (function(ctrlData,ctrlUI){
         
     },
     var ctrlLoadUserPage = function(userlist,currentuser,userdata) {
+        // meghivni az UI-ból a függvényeket
         ctrlUI.showUserList();
         ctrlUI.renderUserPage();
     };
