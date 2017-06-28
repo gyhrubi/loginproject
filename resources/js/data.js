@@ -77,8 +77,8 @@ var DataController = (function () {
 
     addUser('ADMIN', 'adminPass', 'adminFirst', 'adminLast','admin@gmail.com');
     addUser('elso', 'elsoPass', 'elsoFirst', 'elsoLast','elso@gmail.com');
-    addUser('masodik', 'admin', 'masodikFirst', 'masodikLast','masodik@gmail.com');
-    addUser('harmadik', 'admin', 'harmadikFirst', 'harmadikLast','harmadik@gmail.com');
+    addUser('masodik', 'masodikPass', 'masodikFirst', 'masodikLast','masodik@gmail.com');
+    addUser('harmadik', 'harmadikPass', 'harmadikFirst', 'harmadikLast','harmadik@gmail.com');
 
 
     // Public part of the module:

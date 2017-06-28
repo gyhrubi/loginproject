@@ -25,20 +25,28 @@ var AppController = (function(ctrlData,ctrlUI){
         
        
         // Authorize current login
-        var authResult = ctrlData.authUser(loginData.user_name, loginData.password);
-       
+        var authResult = ctrlData.login(loginData.user_name, loginData.password);
+        
+        if (authResult[0]) {
+            ctrlLoadUserPage();
+        } else {
+            ctrlUI.loginFails(authResult[1]);
+        }
+        
         // Render the authorization result
-        if (1) {
+        /*if (1) {
             ctrlUI.clearFields();
             ctrlUI.showUserList();
             ctrlLoadUserPage();
         } else {
             ctrlUI.loginFails(0);
-        }
+        }*/
         
-    },
+    };
+    
     var ctrlLoadUserPage = function(userlist,currentuser,userdata) {
         // meghivni az UI-ból a függvényeket
+        ctrlUI.clearFields();
         ctrlUI.showUserList();
         ctrlUI.renderUserPage();
     };
