@@ -11,7 +11,34 @@ var DataController = (function () {
     };
   
     var encryptedPasswordFull = "";
-    var usersArray = [{userName: 'ADMIN', password: 'ÚÐØÆÀ', firstName: 'adminFirst', lastName: 'adminLast', email: 'admin@gmail.com'},{userName: 'elso', password: 'ääÀÜäÖÈ', firstName: 'elsoFirst', lastName: 'elsoLast', email: 'elso@gmail.com'},{userName: 'masodik', password: 'ääÀÔÐÆÜäÀØ', firstName: 'masodikFirst', lastName: 'masodikLast', email: 'masodik@gmail.com'},{userName: 'harmadik', password: 'ääÀÔÐÆÀØâÀÎ', firstName: 'harmadikFirst', lastName: 'harmadikLast', email: 'harmadik@gmail.com'}];
+    var usersArray = [
+        {
+            userName: 'ADMIN',
+            password: 'ÚÐØÆÀ',
+            firstName: 'adminFirst',
+            lastName: 'adminLast',
+            email: 'admin@gmail.com'
+        },
+        {
+            userName: 'elso',
+            password: 'ääÀÜäÖÈ',
+            firstName: 'elsoFirst',
+            lastName: 'elsoLast',
+            email: 'elso@gmail.com'
+        },
+        {
+            userName: 'masodik',
+            password: 'ääÀÔÐÆÜäÀØ',
+            firstName: 'masodikFirst',
+            lastName: 'masodikLast',
+            email: 'masodik@gmail.com'},
+        {
+            userName: 'harmadik',
+            password: 'ääÀÔÐÆÀØâÀÎ',
+            firstName: 'harmadikFirst',
+            lastName: 'harmadikLast',
+            email: 'harmadik@gmail.com'
+        }];
     console.log(usersArray);
     var currentUser;
     var encryptedPasswordFull = "";
@@ -53,7 +80,7 @@ var DataController = (function () {
             var temp = -1;
             for (var i = 0; i < usersArray.length; i++) {
 
-                if (usersArray[i].userName === nameOfUser) {
+                if (usersArray[i].userName.toUpperCase() === nameOfUser.toUpperCase()) {
                     temp = i;
                     break;
                 }
@@ -107,13 +134,14 @@ var DataController = (function () {
         addUser: function (userName, password, firstName, lastName, email) {
             newUser = new User(userName, encryptPassword(password), firstName, lastName, email);
             for (var i = 0; i < usersArray.length; i++){
-                if (usersArray[i].userName === newUser.userName) {
+                if (usersArray[i].userName.toUpperCase() === newUser.userName.toUpperCase()) {
                     console.log('Sikertelen reg. Ilyen felhasználónév már van az adatbázisban');
                     return -1;
                 }
             }
             usersArray.push(newUser);
             console.log('Sikeres reg');
+            console.log(usersArray);
             return newUser;
         }
     };
