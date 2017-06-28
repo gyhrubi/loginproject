@@ -90,6 +90,7 @@ button {
 
 .material-icons {
     color: #90a4ae;
+    vertical-align: middle;
 }
 
 .material-icons.md-48 { font-size: 48px; }
@@ -123,16 +124,16 @@ button {
     position: relative;
     display: inline-block;
     float: left;
-    width: 25%;
+    width: 30%;
     height: inherit;
-    border: solid 0.5px rgba(137, 137, 137, 0.44);
+    border: solid 0.5px rgba(165, 165, 165, 0.32);
 }
 
 .user-data-block {
     display: inline-block;
-    width: 75%;
+    width: 70%;
     height: inherit;
-    border: solid 0.5px rgba(137, 137, 137, 0.44);
+    border: solid 0.5px rgba(165, 165, 165, 0.32);
 }
 
 .table {
@@ -156,13 +157,40 @@ button {
     padding: 3px 0 3px 10px;
 }
 
-.user-list-item:hover,gi
-.user-list-item:active {
+.user-list-item:hover {
     background-color: #c1d5e0;
+}
+
+.selected {
+    background-color: #90a4ae;
 }
 
 .current-user-block {
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     width: 100%;
+    border-top: solid 1px rgba(165, 165, 165, 0.32);
+}
+
+.current-user-name {
+    font-size: 18px;
+    margin: 5px 25px;
+}
+
+.logout-btn {
+    display: block;
+    margin: auto;
+    width: 80%;
+}
+
+.add-user {
+    display: inline-block;
+    margin: 5px;
+}
+
+.add-user-label {
+    display: inline-block;
+    margin: 0 0 0 10px;
+    font-size: 19px;
+    color: rgba(0, 0, 0, 0.87);
 }
