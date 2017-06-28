@@ -31,14 +31,16 @@ var AppController = (function(ctrlData,ctrlUI){
         if (1) {
             ctrlUI.clearFields();
             ctrlUI.showUserList();
+            ctrlLoadUserPage();
         } else {
             ctrlUI.loginFails(0);
         }
         
+    },
+    var ctrlLoadUserPage = function(userlist,currentuser,userdata) {
+        ctrlUI.showUserList();
+        ctrlUI.renderUserPage();
     };
-    
->>>>>>> cce6236a499a125425ca4ca21108780b54d4f592
-    
     // Public part of the module:
     return {
         init: function() {
