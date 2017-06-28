@@ -49,7 +49,8 @@ var UIController = (function(){
             fieldsArr.forEach(function(current, index, array) {
                current.value = ""; 
             });
-            
+            document.querySelector(DOMstrings.errortext).textContent = '';
+ 
         },
        
     

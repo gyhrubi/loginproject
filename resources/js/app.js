@@ -1,6 +1,7 @@
 var AppController = (function(ctrlData,ctrlUI){
 
     // Private part of the module:
+
     var setupEventListeners = function() {
         
         var DOM = ctrlUI.getDOMstrings();
@@ -30,13 +31,17 @@ var AppController = (function(ctrlData,ctrlUI){
         if (1) {
             ctrlUI.clearFields();
             ctrlUI.showUserList();
+            ctrlLoadUserPage();
         } else {
             ctrlUI.loginFails(0);
         }
         
+    },
+    var ctrlLoadUserPage = function(userlist,currentuser,userdata) {
+        // meghivni az UI-ból a függvényeket
+        ctrlUI.showUserList();
+        ctrlUI.renderUserPage();
     };
-    
-    
     // Public part of the module:
     return {
         init: function() {
