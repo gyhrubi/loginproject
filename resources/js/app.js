@@ -45,7 +45,13 @@ var AppController = (function(ctrlData,ctrlUI){
         ctrlUI.clearFields();
         ctrlUI.showUserList();
         ctrlUI.renderUserPage(users,currentUser,currentUserData);
+        var DOM = ctrlUI.getDOMstrings();
+        
+        document.querySelector(DOM.loguot_btn).addEventListener('click',ctrlLogout);
     };
+    var ctrlLogout = function() {
+        DataController.logoutUser();
+    }
 
     // Public part of the module:
     return {

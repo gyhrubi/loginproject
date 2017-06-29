@@ -130,6 +130,7 @@ button {
 }
 
 .user-data-block {
+    position: relative;
     display: inline-block;
     width: 70%;
     height: inherit;
@@ -193,4 +194,25 @@ button {
     margin: 0 0 0 10px;
     font-size: 19px;
     color: rgba(0, 0, 0, 0.87);
+}
+
+/**********************************************
+*** NEW USER PAGE
+**********************************************/
+
+.editable {
+    border: solid 1px #62757f;
+    text-align: right;
+    
+}
+
+.config-user-data {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+}
+
+.add-newuser-btn {
+    display: none;
+    margin-bottom: 10px;
 }
