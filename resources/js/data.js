@@ -13,32 +13,14 @@ var DataController = (function () {
     var encryptedPasswordFull = "";
     var usersArray = [
         {
-            userName: 'ADMIN',
+            userName: 'admin',
             password: 'ÚÐØÆÀ',
             firstName: 'adminFirst',
             lastName: 'adminLast',
             email: 'admin@gmail.com'
-        },
-        {
-            userName: 'elso',
-            password: 'ääÀÜäÖÈ',
-            firstName: 'elsoFirst',
-            lastName: 'elsoLast',
-            email: 'elso@gmail.com'
-        },
-        {
-            userName: 'masodik',
-            password: 'ääÀÔÐÆÜäÀØ',
-            firstName: 'masodikFirst',
-            lastName: 'masodikLast',
-            email: 'masodik@gmail.com'},
-        {
-            userName: 'harmadik',
-            password: 'ääÀÔÐÆÀØâÀÎ',
-            firstName: 'harmadikFirst',
-            lastName: 'harmadikLast',
-            email: 'harmadik@gmail.com'
-        }];
+        }
+        
+        ];
 
     var currentUser;
     var encryptedPasswordFull = "";

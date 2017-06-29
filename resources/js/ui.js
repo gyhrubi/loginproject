@@ -158,6 +158,17 @@ var UIController = (function(){
             document.querySelector(DOMstrings.errortext).textContent = '';
         },
         
+        clearNewUserFields: function() {
+ 
+            fields = document.querySelectorAll('#'+DOMstrings.dataUserName +', #'+ DOMstrings.dataPassword+', #'+ DOMstrings.dataFirstName+', #'+ DOMstrings.dataLastName+', #'+ DOMstrings.dataEmail);            
+            fieldsArr = Array.prototype.slice.call(fields);
+            
+            fieldsArr.forEach(function(current) {
+                current.value = ""; 
+            });
+            
+        },
+        
         renderUserPage: function(users,currentUser,currentUserData) {
             
             // Aktuális bejelentkezett felhasználó nevének kijelzése

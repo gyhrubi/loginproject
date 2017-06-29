@@ -49,7 +49,15 @@ var AppController = (function(ctrlData,ctrlUI){
         
         document.querySelector(DOM.loguot_btn).addEventListener('click',ctrlLogout);
         
-        document.querySelector(DOM.addUser_btn).addEventListener('click',ctrlNewUserPage);
+        document.querySelector(DOM.addUser_btn).addEventListener('click',function() {
+            
+            if (ctrlData.getCurrentUser() == 'admin') {
+                ctrlNewUserPage();
+            } else {
+                alert('No authorization.');
+            }
+            
+        });
 
         document.querySelector(DOM.userList).addEventListener('click',function(event){
                         
@@ -95,6 +103,8 @@ var AppController = (function(ctrlData,ctrlUI){
         updatedUserList = ctrlData.getUserList();
         // 4. Az új listát tovább küldjük a UI-ban a listUser függvénynek.
         ctrlUI.listUsers(updatedUserList);
+        // 5. Beviteli mezők tartalmának törlése
+        ctrlUI.clearNewUserFields();
     
     }
     // Public part of the module:
