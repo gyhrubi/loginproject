@@ -217,6 +217,11 @@ button {
     margin-bottom: 10px;
 }
 
-#table-password {
-    display: none;
+
+.new-user-password {
+   display: none;
+}
+
+.show-tablerow {
+    display: table-row;
 }
