@@ -48,6 +48,9 @@ var AppController = (function(ctrlData,ctrlUI){
         var DOM = ctrlUI.getDOMstrings();
         
         document.querySelector(DOM.loguot_btn).addEventListener('click',ctrlLogout);
+        
+        document.querySelector(DOM.addNewUser_btn).addEventListener('click',ctrlNewUserPage);
+
         document.querySelector(DOM.userList).addEventListener('click',function(event){
                         
             fullselected = event.target.id;
@@ -70,6 +73,21 @@ var AppController = (function(ctrlData,ctrlUI){
     
     var ctrlLogout = function() {
         DataController.logoutUser();
+    }
+    
+    var ctrlNewUserPage = function() {
+        ctrlUI.showNewUserPage();
+    } 
+    
+    var ctrlAddNewUser = function() {
+         
+        // 1. A UI Controllerben a getNewUserInputData-tól a kapunk 5 paramétert.
+        
+        // 2. Ezeket a paramétereket tovább adjuk az addUser-hez a DataControllerben
+        
+        // 3. A DataControllerben a getUserList-et ujra lekérjük
+        
+        // 4. Az új listát tovább küldjük a UI-ban a listUser függvénynek.
     }
 
     // Public part of the module:
