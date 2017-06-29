@@ -64,8 +64,7 @@ var AppController = (function(ctrlData,ctrlUI){
         
         var currentUserData;
         currentUserData = DataController.getUserData(selectedUserID);
-        console.log(currentUserData);
-        ctrlUI.showSelectedUserDatas(currentUserData);
+        ctrlUI.showSelectedUserData(currentUserData);
         
     }
     
