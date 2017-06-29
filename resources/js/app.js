@@ -77,8 +77,11 @@ var AppController = (function(ctrlData,ctrlUI){
     }
     
     var ctrlNewUserPage = function() {
+        
+        var DOM = ctrlUI.getDOMstrings();
+        
         ctrlUI.showNewUserPage();
-        console.log('működik');
+        document.querySelector(DOM.addNewUser_btn).addEventListener('click',ctrlAddNewUser);
     } 
     
     var ctrlAddNewUser = function() {
@@ -87,7 +90,7 @@ var AppController = (function(ctrlData,ctrlUI){
         // 1. A UI Controllerben a getNewUserInputData-tól a kapunk 5 paramétert.
         newUserDatas = ctrlUI.getNewUserInputData();
         // 2. Ezeket a paramétereket tovább adjuk az addUser-hez a DataControllerben
-        ctrlData.addUser(newUserDatas);
+        ctrlData.addUser(newUserDatas.userName,newUserDatas.password,newUserDatas.firstName,newUserDatas.lastName,newUserDatas.email);
         // 3. A DataControllerben a getUserList-et ujra lekérjük
         updatedUserList = ctrlData.getUserList();
         // 4. Az új listát tovább küldjük a UI-ban a listUser függvénynek.
@@ -98,6 +101,7 @@ var AppController = (function(ctrlData,ctrlUI){
     return {
         init: function() {
             setupEventListeners();
+            document.getElementById('login-field-username').focus();
         }
         
     };

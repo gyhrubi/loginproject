@@ -25,45 +25,11 @@ var UIController = (function(){
     };
  
     
-/*    var listUsers = function(users) {
-      
-        var html, newHtml, userList;
-        
-        userList = document.querySelector(DOMstrings.userList);
-        
-        html = '<li class="user-list-item" id="user-%username%">%username%</li>';
-        
-        // Userek törlése a listából
-        while (userList.firstChild) {
-            userList.removeChild(userList.firstChild);
-        }
-        
-        for (i = 0; i<users.length; i++) {
-            
-            newHtml = html.replace('%username%', users[i]);
-            newHtml = newHtml.replace('%username%', users[i]);
-            userList.insertAdjacentHTML('beforeend',newHtml);
-            
-        }
-        
-    };
-*/    
     var showCurrentUser = function(curUser) {
         
         document.querySelector(DOMstrings.currentUserLabel).textContent = curUser;
     };
- /*   
-    var showSelectedUserData = function(selUserData) {
-        
-        document.getElementById(DOMstrings.dataUserName).value = selUserData[0];
-        document.getElementById(DOMstrings.dataFirstName).value = selUserData[1];
-        document.getElementById(DOMstrings.dataLastName).value = selUserData[2];
-        document.getElementById(DOMstrings.dataEmail).value = selUserData[3];
-        
-        colorSelectedUser(selUserData[0]);
-        
-    };
-*/    
+   
     var colorSelectedUser = function(selUserName) {
       
         var userList, nodeElements;
@@ -100,8 +66,9 @@ var UIController = (function(){
     return {
         
         showLoginPage: function() {
-            document.querySelector(".user-page").classList.toggle('show');
-            document.querySelector(".login-page").classList.toggle('show');
+            document.querySelector(DOMstrings.userpage).classList.toggle('show');
+            document.querySelector(DOMstrings.loginpage).classList.toggle('show');
+            document.querySelector(DOMstrings.input_username).focus();
         },
         
         
@@ -205,13 +172,17 @@ var UIController = (function(){
         
         
         getNewUserInputData: function() {
-            return {
-                userName: document.querySelector(DOMstrings.dataUserName).value,
-                password: document.querySelector(DOMstrings.dataPassword).value,
-                firstName: document.querySelector(DOMstrings.dataFirstName).value,
-                lastName: document.querySelector(DOMstrings.dataLastName).value,
-                email: document.querySelector(DOMstrings.dataEmail).value
-            };
+            
+            var newUserData = {
+                userName: document.getElementById(DOMstrings.dataUserName).value,
+                password: document.getElementById(DOMstrings.dataPassword).value,
+                firstName: document.getElementById(DOMstrings.dataFirstName).value,
+                lastName: document.getElementById(DOMstrings.dataLastName).value,
+                email: document.getElementById(DOMstrings.dataEmail).value
+            }
+            
+            return newUserData;
+                
         },
     
         
