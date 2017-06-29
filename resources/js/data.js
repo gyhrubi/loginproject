@@ -110,21 +110,21 @@ var DataController = (function () {
         addUser: function (userName, password, firstName, lastName, email) {
             if (currentUser === usersArray[0].userName){
                 
-            newUser = new User(userName, encryptPassword(password), firstName, lastName, email);
-            if (newUser.userName !== "" && newUser.password !== "") {
-                for (var i = 0; i < usersArray.length; i++){
-                    if (usersArray[i].userName.toUpperCase() === newUser.userName.toUpperCase()) {
-                        console.log('Sikertelen reg. Ilyen felhasználónév már van az adatbázisban');
-                        return -1;
+                newUser = new User(userName, encryptPassword(password), firstName, lastName, email);
+                
+                if (newUser.userName !== "" && newUser.password !== "") {
+                    for (var i = 0; i < usersArray.length; i++){
+                        if (usersArray[i].userName.toUpperCase() === newUser.userName.toUpperCase()) {
+                            alert('Regisztráció sikertelen! A(z) '+ userName+ ' felhasználónév már létezik az adatbázisban.');
+                            return -1;
+                        }
                     }
+                    usersArray.push(newUser);
+                    console.log(usersArray);
+                    return newUser;
+                } else {
+                    alert('Hiányzó adatok! (felhasználónév / jelszó)');
                 }
-                usersArray.push(newUser);
-                console.log('Sikeres reg');
-                console.log(usersArray);
-                return newUser;
-            } else {
-                console.log('Nem adtál meg felhasználónevet/jelszót!');
-            }
             }
             
         },
