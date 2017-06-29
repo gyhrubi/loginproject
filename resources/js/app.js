@@ -49,7 +49,7 @@ var AppController = (function(ctrlData,ctrlUI){
         
         document.querySelector(DOM.loguot_btn).addEventListener('click',ctrlLogout);
         
-        document.querySelector(DOM.addNewUser_btn).addEventListener('click',ctrlNewUserPage);
+        document.querySelector(DOM.addUser_btn).addEventListener('click',ctrlNewUserPage);
 
         document.querySelector(DOM.userList).addEventListener('click',function(event){
                         
@@ -78,6 +78,7 @@ var AppController = (function(ctrlData,ctrlUI){
     
     var ctrlNewUserPage = function() {
         ctrlUI.showNewUserPage();
+        console.log('működik');
     } 
     
     var ctrlAddNewUser = function() {
