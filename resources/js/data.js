@@ -130,6 +130,10 @@ var DataController = (function () {
             return currentUser;
         },
         
+        logoutUser: function() {
+            currentUser = "";
+        },
+        
         //Add User
         addUser: function (userName, password, firstName, lastName, email) {
             newUser = new User(userName, encryptPassword(password), firstName, lastName, email);
