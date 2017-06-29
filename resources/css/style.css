@@ -225,3 +225,8 @@ button {
 .show-tablerow {
     display: table-row;
 }
+
+input:focus {
+    outline-color: #c6b690;
+    background-color: #ebe0e0;
+}

@@ -109,6 +109,17 @@ var UIController = (function(){
             document.getElementById(DOMstrings.dataFirstName).value = selUserData[1];
             document.getElementById(DOMstrings.dataLastName).value = selUserData[2];
             document.getElementById(DOMstrings.dataEmail).value = selUserData[3];
+            
+            var x = document.querySelectorAll(DOMstrings.userTableData);
+            for (var i = 0; i < x.length; i++) {
+                x[i].classList.remove('editable');
+                x[i].disabled = true;
+                //x[i].value = "";
+            }
+            document.querySelector(DOMstrings.addNewUser_btn).classList.remove("show");            
+            document.querySelector(DOMstrings.newUserPassword).classList.remove("show-tablerow");
+            
+            
 
             colorSelectedUser(selUserData[0]);
         },
