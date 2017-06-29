@@ -71,7 +71,6 @@ var UIController = (function(){
             document.querySelector(DOMstrings.input_username).focus();
         },
         
-        
         showNewUserPage: function() {
             var x = document.querySelectorAll(DOMstrings.userTableData);
             for (var i = 0; i < x.length; i++) {
@@ -181,7 +180,6 @@ var UIController = (function(){
             UIController.showSelectedUserData(currentUserData);
         },
         
-        
         getNewUserInputData: function() {
             
             var newUserData = {
@@ -196,7 +194,6 @@ var UIController = (function(){
                 
         },
     
-        
         getDOMstrings: function() {
             return DOMstrings;
         }

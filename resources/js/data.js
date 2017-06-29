@@ -9,8 +9,7 @@ var DataController = (function () {
         this.lastName = lastName;
         this.email = email;
     };
-  
-    var encryptedPasswordFull = "";
+    
     var usersArray = [
         {
             userName: 'admin',
@@ -25,7 +24,6 @@ var DataController = (function () {
     var currentUser;
     var encryptedPasswordFull = "";
  
-
     // Encrypt Password
     var encryptPassword = function (password) {
         var encryptedPassword = "";
@@ -36,9 +34,6 @@ var DataController = (function () {
 
         return encryptedPasswordFull;
     };
-
-     //encryptPassword("harmadikPass");
-
  
     // Decrypt Password
     var decryptPassword = function (password) {
@@ -52,7 +47,6 @@ var DataController = (function () {
         //console.log("Eredeti password: |" + decryptedPasswordFull + "|");
         return decryptedPasswordFull;
     }
-    // decryptPassword(encryptedPasswordFull);
 
     // Public part of the module:
     return {
