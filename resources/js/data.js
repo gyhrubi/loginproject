@@ -72,7 +72,6 @@ var DataController = (function () {
         return decryptedPasswordFull;
     }
     // decryptPassword(encryptedPasswordFull);
- 
 
     // Public part of the module:
     return {
@@ -116,8 +115,8 @@ var DataController = (function () {
                     var x = usersArray[i];
                     //userData.push(usersArray[i]);
                     userData.push(x.userName, x.firstName, x.lastName, x.email);
-                    console.log("User Data:");
-                    console.log(userData);
+                    //console.log("User Data:");
+                    //console.log(userData);
                     return userData;
                 }
             }
@@ -134,8 +133,10 @@ var DataController = (function () {
             currentUser = "";
         },
         
-        //Add User
+        // Új felhasználó hozzáadása
         addUser: function (userName, password, firstName, lastName, email) {
+            if (currentUser === usersArray[0].userName){
+                
             newUser = new User(userName, encryptPassword(password), firstName, lastName, email);
             if (newUser.userName !== "" && newUser.password !== "") {
                 for (var i = 0; i < usersArray.length; i++){
@@ -151,7 +152,27 @@ var DataController = (function () {
             } else {
                 console.log('Nem adtál meg felhasználónevet/jelszót!');
             }
+            }
+            
+        },
+        
+        // Felhasználó törlés
+        deleteUser: function(userName) {
+            
+            var userNames = usersArray.map(function(cur) {
+                return cur.userName;    
+            });
+            
+            var curUserIndex = userNames.indexOf(userName);
+            
+            if (curUserIndex > -1) {
+                
+                usersArray.splice(curUserIndex,1);
+                
+            }
+            
         }
+        
     };
 })();
 

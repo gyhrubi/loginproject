@@ -17,7 +17,8 @@ var UIController = (function(){
         dataEmail: 'data-email',
         loguot_btn: '.logout-btn',
         addNewUser_btn: '.add-newuser-btn',
-        userTableData: '.user-table-data'
+        userTableData: '.user-table-data',
+        user_list_item_selected: '.user-list-item selected'
     };
  
     
