@@ -37,7 +37,7 @@ var AppController = (function(ctrlData,ctrlUI){
     
     var ctrlLoadUserPage = function() {
         
-        var users,currentUser,currentUserData;
+        var users,currentUser,currentUserData,fullselected,splitID,itemword,selectedUserID;
         users = ctrlData.getUserList();
         currentUser = ctrlData.getCurrentUser();
         currentUserData = ctrlData.getUserData(currentUser);
@@ -48,7 +48,27 @@ var AppController = (function(ctrlData,ctrlUI){
         var DOM = ctrlUI.getDOMstrings();
         
         document.querySelector(DOM.loguot_btn).addEventListener('click',ctrlLogout);
+        document.querySelector(DOM.userList).addEventListener('click',function(event){
+                        
+            fullselected = event.target.id;
+            splitID = fullselected.split('-');
+            itemword = splitID[0];
+            selectedUserID = splitID[1];
+            
+            ctrlSelectUser(selectedUserID);
+
+        });
     };
+    
+    var ctrlSelectUser = function(selectedUserID) {
+        
+        var currentUserData;
+        currentUserData = DataController.getUserData(selectedUserID);
+        console.log(currentUserData);
+        ctrlUI.showSelectedUserDatas(currentUserData);
+        
+    }
+    
     var ctrlLogout = function() {
         DataController.logoutUser();
     }

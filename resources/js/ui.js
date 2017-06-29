@@ -15,7 +15,8 @@ var UIController = (function(){
         dataFirstName: 'data-firstname',
         dataLastName: 'data-lastname',
         dataEmail: 'data-email',
-        loguot_btn: '.logout-btn'
+        loguot_btn: '.logout-btn',
+        user_list_item_selected: '.user-list-item selected'
     };
     
     var listUsers = function(users) {
