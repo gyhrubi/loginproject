@@ -73,6 +73,7 @@ var AppController = (function(ctrlData,ctrlUI){
     
     var ctrlLogout = function() {
         DataController.logoutUser();
+        UIController.showLoginPage();
     }
     
     var ctrlNewUserPage = function() {

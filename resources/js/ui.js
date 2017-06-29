@@ -95,10 +95,20 @@ var UIController = (function(){
     
     // Public part of the module:
     return {
+        
+        showLoginPage: function() {
+            document.querySelector(".user-page").classList.toggle('show');
+            document.querySelector(".login-page").classList.toggle('show');
+        },
+        
+        
         showNewUserPage: function() {
-            document.querySelector(DOMstrings.userTableData).classList.addClass('show');
-            document.querySelector(DOMstrings.userTableData).classList.removeClass('disabled');
-            document.querySelector(DOMstrings.addNewUser_btn).classList.addClass("editable");
+            
+            document.querySelectorAll(DOMstrings.userTableData).classList.addClass('editable');
+            document.querySelectorAll(DOMstrings.userTableData).classList.removeClass('disabled');
+            document.querySelectorAll(DOMstrings.userTableData).value = "";
+            document.querySelector(DOMstrings.addNewUser_btn).classList.addClass("show");
+            document.querySelector(DOMstrings.addNewUser_btn).classList.addClass("show");
             
         },
         
