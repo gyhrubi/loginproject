@@ -39,7 +39,7 @@ var DataController = (function () {
             lastName: 'harmadikLast',
             email: 'harmadik@gmail.com'
         }];
-    console.log(usersArray);
+
     var currentUser;
     var encryptedPasswordFull = "";
  
@@ -51,8 +51,7 @@ var DataController = (function () {
             encryptedPassword += String.fromCharCode((password.charCodeAt(i) - 1) * 2);
         }
         encryptedPasswordFull = encryptedPassword.split("").reverse().join("");
-        //console.log("Beírt jelszó: |" + password + "|");
-        //console.log("Kódolt jelszó: |" + encryptedPasswordFull + "|");
+
         return encryptedPasswordFull;
     };
 
@@ -102,8 +101,7 @@ var DataController = (function () {
             for (var i = 1; i < usersArray.length; i++) {
                 userList[i - 1] = usersArray[i].userName;
             }
-            console.log("User List:");
-            console.log(userList);
+
             return userList;
         },
 
