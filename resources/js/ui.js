@@ -36,7 +36,8 @@ var UIController = (function(){
         userList = document.querySelector(DOMstrings.userList).childNodes;
         
         nodeElements = getOnlyNodeElements(userList);
-            
+        
+        // Kiválasztott user nevének kijelölése háttérszínnel
         for(i = 0; i<nodeElements.length; i++) {
             
             nodeElements[i].classList.remove('selected');
@@ -47,6 +48,7 @@ var UIController = (function(){
         }
     };
     
+    // Childnode-ok közül visszaadja azokat, melyek típusa Element Node
     var getOnlyNodeElements = function(childNodeList) {
         
         var temp = [];
@@ -72,14 +74,17 @@ var UIController = (function(){
         },
         
         showNewUserPage: function() {
+            
             var x = document.querySelectorAll(DOMstrings.userTableData);
+            
             for (var i = 0; i < x.length; i++) {
                 x[i].classList.add('editable');
                 x[i].disabled = false;
                 x[i].value = "";
             }
             document.querySelector(DOMstrings.addNewUser_btn).classList.add("show");            
-            document.querySelector(DOMstrings.newUserPassword).classList.add("show-tablerow");            
+            document.querySelector(DOMstrings.newUserPassword).classList.add("show-tablerow");       
+            
         },
         
         listUsers: function(users) {
@@ -88,12 +93,12 @@ var UIController = (function(){
 
             userList = document.querySelector(DOMstrings.userList);
 
-            html = '<li class="user-list-item" id="user-%username%">%username%</li>';
-
             // Userek törlése a listából
             while (userList.firstChild) {
                 userList.removeChild(userList.firstChild);
             }
+            
+            html = '<li class="user-list-item" id="user-%username%">%username%</li>';
 
             for (i = 0; i<users.length; i++) {
 
@@ -105,11 +110,13 @@ var UIController = (function(){
         
         showSelectedUserData: function(selUserData) {
         
+            // Felhasználó adatainak betöltése a táblázatba
             document.getElementById(DOMstrings.dataUserName).value = selUserData[0];
             document.getElementById(DOMstrings.dataFirstName).value = selUserData[1];
             document.getElementById(DOMstrings.dataLastName).value = selUserData[2];
             document.getElementById(DOMstrings.dataEmail).value = selUserData[3];
             
+            // Felhaszánló adat megjelenítés beállítása
             var x = document.querySelectorAll(DOMstrings.userTableData);
             for (var i = 0; i < x.length; i++) {
                 x[i].classList.remove('editable');
