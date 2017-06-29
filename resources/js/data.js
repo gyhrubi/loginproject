@@ -22,7 +22,6 @@ var DataController = (function () {
         ];
 
     var currentUser;
-    var encryptedPasswordFull = "";
  
     // Encrypt Password
     var encryptPassword = function (password) {
