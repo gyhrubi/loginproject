@@ -109,27 +109,30 @@ var DataController = (function () {
         // Új felhasználó hozzáadása
         addUser: function (userName, password, firstName, lastName, email) {
 		if (currentUser === usersArray[0].userName){
-			
-			newUser = new User(userName, encryptPassword(password), firstName, lastName, email);
-			var hasNumber = /\d/, patt1 = /\D/g, result = "";
-            result = password.match(patt1);
-			if (hasNumber.test(password) && result.length > 0 && password.length > 5){
-				if (newUser.userName !== "" && newUser.password !== "") {
-					for (var i = 0; i < usersArray.length; i++){
-						if (usersArray[i].userName.toUpperCase() === newUser.userName.toUpperCase()) {
-							alert('Regisztráció sikertelen! A(z) '+ userName+ ' felhasználónév már létezik az adatbázisban.');
-							return -1;
-						}
-					}
-					usersArray.push(newUser);
-					console.log(usersArray);
-					return newUser;
-				} else {
-					alert('Hiányzó adatok! (felhasználónév / jelszó)');
-				}
-			}else {
-				alert('A jelszónak min. 6 karakter hosszúnak kell lennie, és betűt és számot is tartalmaznia kell')
-			}
+			if (userName.length > 6) {
+                newUser = new User(userName, encryptPassword(password), firstName, lastName, email);
+                var hasNumber = /\d/, patt1 = /\D/g, result = "";
+                result = password.match(patt1);
+                if (hasNumber.test(password) && result.length > 0 && password.length > 5){
+                    if (newUser.userName !== "" && newUser.password !== "") {
+                        for (var i = 0; i < usersArray.length; i++){
+                            if (usersArray[i].userName.toUpperCase() === newUser.userName.toUpperCase()) {
+                                alert('Regisztráció sikertelen! A(z) '+ userName+ ' felhasználónév már létezik az adatbázisban.');
+                                return -1;
+                            }
+                        }
+                        usersArray.push(newUser);
+                        console.log(usersArray);
+                        return newUser;
+                    } else {
+                        alert('Hiányzó adatok! (felhasználónév / jelszó)');
+                    }
+                }else {
+                    alert('A jelszónak min. 6 karakter hosszúnak kell lennie, és betűt és számot is tartalmaznia kell');
+                }
+            } else {
+                alert('A felhasználónévnek legalább 6 karaktert kell tartalmaznia!');
+            }
 		}
             
     },
