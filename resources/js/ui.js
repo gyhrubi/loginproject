@@ -16,8 +16,9 @@ var UIController = (function(){
         dataLastName: 'data-lastname',
         dataEmail: 'data-email'
     };
+ 
     
-    var listUsers = function(users) {
+/*    var listUsers = function(users) {
       
         var html, newHtml, userList;
         
@@ -39,7 +40,7 @@ var UIController = (function(){
         }
         
     };
-    
+*/    
     var showCurrentUser = function(curUser) {
         
         document.querySelector(DOMstrings.currentUserLabel).textContent = curUser;
@@ -93,6 +94,30 @@ var UIController = (function(){
     
     // Public part of the module:
     return {
+        
+        listUsers: function(users) {
+      
+            var html, newHtml, userList;
+
+            userList = document.querySelector(DOMstrings.userList);
+
+            html = '<li class="user-list-item" id="user-%username%">%username%</li>';
+
+            // Userek törlése a listából
+            while (userList.firstChild) {
+                userList.removeChild(userList.firstChild);
+            }
+
+            for (i = 0; i<users.length; i++) {
+
+                newHtml = html.replace('%username%', users[i]);
+                newHtml = newHtml.replace('%username%', users[i]);
+                userList.insertAdjacentHTML('beforeend',newHtml);
+
+            }
+
+        },
+        
         
         getInput: function() {
           
