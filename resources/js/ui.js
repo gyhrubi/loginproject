@@ -16,10 +16,13 @@ var UIController = (function(){
         dataLastName: 'data-lastname',
         dataEmail: 'data-email',
         loguot_btn: '.logout-btn',
+        addNewUser_btn: '.add-newuser-btn',
+        userTableData: '.user-table-data',
         user_list_item_selected: '.user-list-item selected'
     };
+ 
     
-    var listUsers = function(users) {
+/*    var listUsers = function(users) {
       
         var html, newHtml, userList;
         
@@ -41,13 +44,12 @@ var UIController = (function(){
         }
         
     };
-    
+*/    
     var showCurrentUser = function(curUser) {
         
         document.querySelector(DOMstrings.currentUserLabel).textContent = curUser;
-        
     };
-    
+ /*   
     var showSelectedUserData = function(selUserData) {
         
         document.getElementById(DOMstrings.dataUserName).value = selUserData[0];
@@ -58,7 +60,7 @@ var UIController = (function(){
         colorSelectedUser(selUserData[0]);
         
     };
-    
+*/    
     var colorSelectedUser = function(selUserName) {
       
         var userList, nodeElements;
@@ -74,7 +76,6 @@ var UIController = (function(){
                  nodeElements[i].classList.add('selected');        
             }            
         }
-        
     };
     
     var getOnlyNodeElements = function(childNodeList) {
@@ -86,7 +87,6 @@ var UIController = (function(){
             if (childNodeList.item(i).nodeType === 1) {
                 temp.push(childNodeList.item(i));
             }
-            
         }
         
         return temp;
@@ -95,9 +95,45 @@ var UIController = (function(){
     
     // Public part of the module:
     return {
+        showNewUserPage: function() {
+            document.querySelector(DOMstrings.userTableData).classList.addClass('show');
+            document.querySelector(DOMstrings.userTableData).classList.removeClass('disabled');
+            document.querySelector(DOMstrings.addNewUser_btn).classList.addClass("editable");
+            
+        },
         
+        listUsers: function(users) {
+      
+            var html, newHtml, userList;
+
+            userList = document.querySelector(DOMstrings.userList);
+
+            html = '<li class="user-list-item" id="user-%username%">%username%</li>';
+
+            // Userek törlése a listából
+            while (userList.firstChild) {
+                userList.removeChild(userList.firstChild);
+            }
+
+            for (i = 0; i<users.length; i++) {
+
+                newHtml = html.replace(/%username%/g, users[i]);
+                //newHtml = newHtml.replace('%username%', users[i]);
+                userList.insertAdjacentHTML('beforeend',newHtml);
+            }
+        },
+        
+        showSelectedUserData: function(selUserData) {
+        
+            document.getElementById(DOMstrings.dataUserName).value = selUserData[0];
+            document.getElementById(DOMstrings.dataFirstName).value = selUserData[1];
+            document.getElementById(DOMstrings.dataLastName).value = selUserData[2];
+            document.getElementById(DOMstrings.dataEmail).value = selUserData[3];
+
+            colorSelectedUser(selUserData[0]);
+        },
+                
         getInput: function() {
-          
             return {
                 user_name: document.querySelector(DOMstrings.input_username).value,
                 password: document.querySelector(DOMstrings.input_password).value
@@ -105,12 +141,10 @@ var UIController = (function(){
         }, 
         
         showUserList: function() {
-            
             var x = document.querySelector(DOMstrings.loginpage).classList;
             x.remove('show');
             var y = document.querySelector(DOMstrings.userpage).classList;
             y.toggle('show');
-            
         },
         
         loginFails: function(error_reason) {
@@ -127,7 +161,6 @@ var UIController = (function(){
                 default:
                      z.textContent = 'Hibás bejelentkezés';
             }
-            
         },
         
         clearFields: function() {
@@ -142,7 +175,6 @@ var UIController = (function(){
             });
             
             document.querySelector(DOMstrings.errortext).textContent = '';
- 
         },
         
         renderUserPage: function(users,currentUser,currentUserData) {
@@ -151,11 +183,10 @@ var UIController = (function(){
             showCurrentUser(currentUser);
             
             // Rendszerben lévő felhasználók kilistázása
-            listUsers(users);
+            UIController.listUsers(users);
             
             // Aktuális felhasználó kijelölés és adatainak megjelenítése
-            showSelectedUserData(currentUserData);
-            
+            UIController.showSelectedUserData(currentUserData);
         },
     
         getDOMstrings: function() {

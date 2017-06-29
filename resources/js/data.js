@@ -135,6 +135,8 @@ var DataController = (function () {
         
         // Új felhasználó hozzáadása
         addUser: function (userName, password, firstName, lastName, email) {
+            if (currentUser === usersArray[0].userName){
+                
             newUser = new User(userName, encryptPassword(password), firstName, lastName, email);
             if (newUser.userName !== "" && newUser.password !== "") {
                 for (var i = 0; i < usersArray.length; i++){
@@ -150,6 +152,8 @@ var DataController = (function () {
             } else {
                 console.log('Nem adtál meg felhasználónevet/jelszót!');
             }
+            }
+            
         },
         
         // Felhasználó törlés
