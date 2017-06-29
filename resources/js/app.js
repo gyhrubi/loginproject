@@ -66,14 +66,14 @@ var AppController = (function(ctrlData,ctrlUI){
     var ctrlSelectUser = function(selectedUserID) {
         
         var currentUserData;
-        currentUserData = DataController.getUserData(selectedUserID);
+        currentUserData = ctrlData.getUserData(selectedUserID);
         ctrlUI.showSelectedUserData(currentUserData);
         
     }
     
     var ctrlLogout = function() {
-        DataController.logoutUser();
-        UIController.showLoginPage();
+        ctrlData.logoutUser();
+        ctrlUI.showLoginPage();
     }
     
     var ctrlNewUserPage = function() {
@@ -81,16 +81,18 @@ var AppController = (function(ctrlData,ctrlUI){
     } 
     
     var ctrlAddNewUser = function() {
-         
+        
+         var newUserDatas,updatedUserList;
         // 1. A UI Controllerben a getNewUserInputData-tól a kapunk 5 paramétert.
-        
+        newUserDatas = ctrlUI.getNewUserInputData();
         // 2. Ezeket a paramétereket tovább adjuk az addUser-hez a DataControllerben
-        
+        ctrlData.addUser(newUserDatas);
         // 3. A DataControllerben a getUserList-et ujra lekérjük
-        
+        updatedUserList = ctrlData.getUserList();
         // 4. Az új listát tovább küldjük a UI-ban a listUser függvénynek.
+        ctrlUI.listUsers(updatedUserList);
+    
     }
-
     // Public part of the module:
     return {
         init: function() {
