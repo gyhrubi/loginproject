@@ -111,9 +111,9 @@ var DataController = (function () {
 		if (currentUser === usersArray[0].userName){
 			if (userName.length > 6) {
                 newUser = new User(userName, encryptPassword(password), firstName, lastName, email);
-                var hasNumber = /\d/, patt1 = /\D/g, result = "";
+                var hasNumber = /\d/, patt1 = /\D/g, result;
                 result = password.match(patt1);
-                if (hasNumber.test(password) && result.length > 0 && password.length > 5){
+                if (hasNumber.test(password) && result !== null && password.length > 5){
                     if (newUser.userName !== "" && newUser.password !== "") {
                         for (var i = 0; i < usersArray.length; i++){
                             if (usersArray[i].userName.toUpperCase() === newUser.userName.toUpperCase()) {
